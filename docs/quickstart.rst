@@ -17,7 +17,7 @@ Simple use
 
 #. Get one django model or queriset (for example in result variable)
 
-#. User DanteJcoder in JsonResponse
+#. Use DanteJcoder in JsonResponse
 
 .. code-block:: python
 
