@@ -1,3 +1,5 @@
+"""Simple encoder to make json from standart django models"""
+
 import json
 import datetime
 
@@ -6,6 +8,8 @@ from django.utils.deprecation import CallableBool
 
 
 class DanteJcoder(json.JSONEncoder):
+    """Class Encoder can make json from simple models or from models with additional params"""
+
     def _from_fields(self, obj, fields):
         result = {key: getattr(obj, key) for key in fields}
         return result
@@ -22,7 +26,6 @@ class DanteJcoder(json.JSONEncoder):
             try:
                 return obj.__to_json_dict__()
             except AttributeError:
-                # Проверяем есть ли там __to_json_fields__
                 try:
                     fields = obj.__to_json_fields__
                 except AttributeError:
